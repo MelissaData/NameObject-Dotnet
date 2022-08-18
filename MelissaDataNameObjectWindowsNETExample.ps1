@@ -18,7 +18,7 @@ class DLLConfig {
 
 ######################### Config ###########################
 
-$RELEASE_VERSION = '2022.07'
+$RELEASE_VERSION = '2022.08'
 $ProductName = "DQ_NAME_DATA"
 
 
