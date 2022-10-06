@@ -92,16 +92,16 @@ namespace MelissaDataNameObjectWindowsNETExample
 
         // Print output
         Console.WriteLine("\n============================== OUTPUT ==============================\n");
-        Console.WriteLine("\n\nName Object Information:");
+        Console.WriteLine("\n\tName Object Information:");
 
-        Console.WriteLine($"      Prefix: {nameObject.mdNameObj.GetPrefix()}");
-        Console.WriteLine($"  First Name: {nameObject.mdNameObj.GetFirstName()}");
-        Console.WriteLine($" Middle Name: {nameObject.mdNameObj.GetMiddleName()}");
-        Console.WriteLine($"   Last Name: {nameObject.mdNameObj.GetLastName()}");
-        Console.WriteLine($"      Suffix: {nameObject.mdNameObj.GetSuffix()}");
-        Console.WriteLine($"      Gender: {nameObject.mdNameObj.GetGender()}");
-        Console.WriteLine($"  Salutation: {nameObject.mdNameObj.GetSalutation()}");
-        Console.WriteLine($"Result Codes: {dataContainer.ResultCodes}");
+        Console.WriteLine($"\t      Prefix: {nameObject.mdNameObj.GetPrefix()}");
+        Console.WriteLine($"\t  First Name: {nameObject.mdNameObj.GetFirstName()}");
+        Console.WriteLine($"\t Middle Name: {nameObject.mdNameObj.GetMiddleName()}");
+        Console.WriteLine($"\t   Last Name: {nameObject.mdNameObj.GetLastName()}");
+        Console.WriteLine($"\t      Suffix: {nameObject.mdNameObj.GetSuffix()}");
+        Console.WriteLine($"\t      Gender: {nameObject.mdNameObj.GetGender()}");
+        Console.WriteLine($"\t  Salutation: {nameObject.mdNameObj.GetSalutation()}");
+        Console.WriteLine($"\tResult Codes: {dataContainer.ResultCodes}");
 
         String[] rs = dataContainer.ResultCodes.Split(',');
         foreach (String r in rs)

@@ -1,4 +1,4 @@
-﻿# Name:    MelissaDataNameObjectWindowsNET﻿
+# Name:    MelissaDataNameObjectWindowsNET﻿
 # Purpose: Use the Melissa Updater to make the MelissaDataNameObjectWindowsNET example usable
 
 ######################### Parameters ##########################
@@ -18,7 +18,7 @@ class DLLConfig {
 
 ######################### Config ###########################
 
-$RELEASE_VERSION = '2022.08'
+$RELEASE_VERSION = '2022.08' # modify for other release version. For example: '2021.07'
 $ProductName = "DQ_NAME_DATA"
 
 
@@ -35,8 +35,6 @@ If (!(Test-Path $ProjectPath\Build)) {
   New-Item -Path $ProjectPath -Name 'Build' -ItemType "directory"
 }
 
-
-
 $DLLs = @(
   [DLLConfig]@{
     FileName       = "mdName.dll";
@@ -45,14 +43,6 @@ $DLLs = @(
     Compiler       = "DLL";
     Architecture   = "64BIT";
     Type           = "BINARY";
-  },
-  [DLLConfig]@{
-    FileName       = "mdNameNET.dll";
-    ReleaseVersion = $RELEASE_VERSION;
-    OS             = "WINDOWS";
-    Compiler       = "NET";
-    Architecture   = "ANY";
-    Type           = "INTERFACE";
   }
 )
 
@@ -61,7 +51,7 @@ $DLLs = @(
 function DownloadDataFiles([string] $license) {
   $DataProg = 0
   Write-Host "========================== MELISSA UPDATER ========================="
-  Write-Host "MELISSA UPDATER IS DOWNLOADING DATA FILES..."
+  Write-Host "MELISSA UPDATER IS DOWNLOADING DATA FILE(S)..."
 
   .\MelissaUpdater\MelissaUpdater.exe manifest -p $ProductName -r $RELEASE_VERSION -l $license -t $DataPath
   
@@ -70,14 +60,14 @@ function DownloadDataFiles([string] $license) {
       Exit
   }
        
-  Write-Host "Melissa Updater finished downloading data files!"
+  Write-Host "Melissa Updater finished downloading data file(s)!"
 }
 
 function DownloadDLLs() {
-  Write-Host "MELISSA UPDATER IS DOWNLOADING DLLs..."
+  Write-Host "MELISSA UPDATER IS DOWNLOADING DLL(s)..."
   $DLLProg = 0
   foreach ($DLL in $DLLs) {
-    Write-Progress -Activity "Downloading DLLs" -Status "$([math]::round($DLLProg / $DLLs.Count * 100, 2))% Complete:"  -PercentComplete ($DLLProg / $DLLs.Count * 100)
+    Write-Progress -Activity "Downloading DLL(s)" -Status "$([math]::round($DLLProg / $DLLs.Count * 100, 2))% Complete:"  -PercentComplete ($DLLProg / $DLLs.Count * 100)
 
     # Check for quiet mode 
     if ($quiet) {
@@ -104,18 +94,14 @@ function DownloadDLLs() {
 
 
 function CheckDLLs() {
-  Write-Host "`nDouble checking dlls were downloaded...`n" 
+  Write-Host "`nDouble checking dll(s) were downloaded...`n" 
   $FileMissing = $false 
   if (!(Test-Path (Join-Path -Path $ProjectPath\Build -ChildPath "mdName.dll"))) {
     Write-Host "mdName.dll not found." 
     $FileMissing = $false
   }
-  if (!(Test-Path (Join-Path -Path $ProjectPath\Build -ChildPath "mdNameNET.dll"))) {
-    Write-Host "mdNameNET.dll not found." 
-    $FileMissing = $true
-  }
   if ($FileMissing) {
-    Write-Host "`nMissing the above data files.  Please check that your license string and directory are correct."
+    Write-Host "`nMissing the above data file(s).  Please check that your license string and directory are correct."
     return $false
   }
   else {
@@ -144,17 +130,17 @@ if ([string]::IsNullOrEmpty($License)) {
   Exit
 }
 
-# Use Melissa Updater to download data files 
-# Download data files 
+# Use Melissa Updater to download data file(s) 
+# Download data file(s) 
 DownloadDataFiles -license $License      # comment out this line if using DQS Release
 
-# Set data files path
-#$DataPath = "C:\\Program Files\\Melissa DATA\\DQT\\Data"      # uncomment this line and change to your DQS Release data files directory 
+# Set data file(s) path
+#$DataPath = "C:\\Program Files\\Melissa DATA\\DQT\\Data"      # uncomment this line and change to your DQS Release data file(s) directory 
 
-# Download dlls
+# Download dll(s)
 DownloadDlls -license $License
 
-# Check if all dlls have been downloaded Exit script if missing
+# Check if all dll(s) have been downloaded. Exit script if missing
 $DLLsAreDownloaded = CheckDLLs
 if (!$DLLsAreDownloaded) {
   Write-Host "`nAborting program, see above.  Press any button to exit."
@@ -162,12 +148,16 @@ if (!$DLLsAreDownloaded) {
   exit
 }
 
-Write-Host "All files have been downloaded/updated! "
+Write-Host "All file(s) have been downloaded/updated! "
 
 # Start example
 # Build project
 Write-Host "`n=========================== BUILD PROJECT =========================="
-dotnet publish -c Release -o .\MelissaDataNameObjectWindowsNETExample\Build MelissaDataNameObjectWindowsNETExample\MelissaDataNameObjectWindowsNETExample.csproj
+
+# Target frameworks net5.0 and netcoreapp3.1
+# Please comment out the version that you don't want to use and uncomment the one that you do want to use
+dotnet publish -f="net5.0" -c Release -o $ProjectPath\Build MelissaDataNameObjectWindowsNETExample\MelissaDataNameObjectWindowsNETExample.csproj
+#dotnet publish -f="netcoreapp3.1" -c Release -o $ProjectPath\Build MelissaDataNameObjectWindowsNETExample\MelissaDataNameObjectWindowsNETExample.csproj
 
 # Run project
 if ([string]::IsNullOrEmpty($name)) {

@@ -26,7 +26,6 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
-[Bb]uild/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -342,15 +341,3 @@ healthchecksdb
 
 # Data
 Data/
-
-#Wrapper
-mdPhoneNET.dll
-
-#.exe files
-*.exe
-
-# Build
-[Bb]uild/
-
-# MelissaUpdater
-MelissaUpdater/

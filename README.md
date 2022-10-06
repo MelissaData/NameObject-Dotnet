@@ -6,48 +6,40 @@ This is an example of the Melissa Data Name Object using C#
 
 The console will ask the user for:
 
-- Full Name (First Name + Last Name)
+- Name (First Name + Last Name)
 
 And return 
 
+- Prefix
 - First Name
 - Middle Name
 - Last Name
+- Suffix
 - Gender
 - Salutation
-- ResultCodes
-
-----------------------------------------
+- Result Codes
 
 ## Tested Environments
 
-- Windows 64-bit .NET Core 3.1
+- Windows 64-bit .NET Core 3.1 and .NET 5.0
 - Powershell 5.1
 - Melissa data files for 2022-08
 
-----------------------------------------
+## Required File(s) and Programs
 
-## Required Files and Programs
+### mdName.dll
 
-### mdName.dll*
+This is the c++ code of the Melissa Data Object.
 
-This is the c++ version of the Melissa Data Object.
-
-### mdNameNET.dll*
-
-This file needs to be added as a Project Dependency.  This wrapper will need to be in the same directory as the program using it.
-
-(*) These files will be downloaded by Melissa Updater!
-
-### Data Files
+### Data File(s)
 
 - mdName.cfg
 - mdName.dat
- 
-----------------------------------------
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+This project is compatible with both .NET Core 3.1 and .NET 5.0. If you would like to run this project for .NET 5.0, proceed with the following procedures but check for and download .NET 5.0 instead.
 
 #### Install the Dotnet Core SDK
 Before starting, make sure that the .NET Core 3.1 SDK has been correctly installed on your machine (If you have Visual Studio installed, you most likely have it already). If you are unsure, you can check by opening a command prompt window and typing the following:
@@ -60,17 +52,17 @@ If the .NET Core 3.1 SDK is already installed, you should see it in the followin
 
 As long as the above list contains version `3.1.xxx` (underlined in red), then you can skip to the next step. If your list does not contain version 3.1, or you get any kind of error message, then you will need to download and install the .NET Core 3.1 SDK from the Microsoft website.
 
-To download, follow this link: https://dotnet.microsoft.com/download
+To download, follow this link: https://dotnet.microsoft.com/en-us/download/dotnet
 
-On the webpage, make sure you click the button that says `Download .NET Core SDK x64`:
+Select `.NET Core 3.1` and you will be navigated to the download page.
+
+Click and download the `x64` SDK installer for your operating system.
 
 (IMPORTANT: Make sure you download the SDK, NOT the runtime. the SDK contains both the runtime as well as the tools needed to build the project.)
 
-![alt text](/screenshots/microsoft_website_ss.PNG)
+![alt text](/screenshots/.net3.1.JPG)
 
 Once clicked, your web browser will begin downloading an installer for the SDK. Run the installer and follow all of the prompts to complete the installation (your computer may ask you to restart before you can continue). Once all of that is done, you should be able to verify that the SDK is installed with the `dotnet --list-sdks` command.
-
-----------------------------------------
 
 #### Set up Powershell settings
 
@@ -89,40 +81,46 @@ $ git clone https://github.com/MelissaData/NameObject-Dotnet.git
 $ cd NameObject-Dotnet
 ```
 
-----------------------------------------
-
 #### Set up Melissa Updater 
 
 Melissa Updater is a CLI application allowing the user to update their Melissa applications/data.
 
 - Download Melissa Updater here: <https://releases.melissadata.net/Download/Library/WINDOWS/NET/ANY/latest/MelissaUpdater.exe>
-
-- Create a folder within the cloned repo called `MelissaUpdater`
-- Put `MelissaUpdater.exe` in `MelissaUpdater` folder you just created
+- Create a folder within the cloned repo called `MelissaUpdater`.
+- Put `MelissaUpdater.exe` in `MelissaUpdater` folder you just created.
 
 ----------------------------------------
 
-#### Different ways to get data files
+#### Different ways to get data file(s)
 1.  Using Melissa Updater
-	- It will handle all of the data download/path and dlls for you. 
-2.  If you already have the latest DQS Release (ZIP), you can find the data files and dlls in there
-	- Use the location of where you copied/installed the data and update the "$DataPath" variable in the powershell script 
-	- Copy all the dlls mentioned above into the `MelissaDataNameObjectWindowsNETExample` project folder
+	- It will handle all of the data download/path and dll(s) for you. 
+2.  If you already have the latest DQS Release (ZIP), you can find the data file(s) and dll(s) in there
+	- Use the location of where you copied/installed the data and update the "$DataPath" variable in the powershell script.
+	- Copy all the dll(s) mentioned above into the `MelissaDataNameObjectWindowsNETExample` project folder.
 
-----------------------------------------
+---
+
+#### Configure Target Framework
+
+Depending on your target .NET framework, you may need to configure the powershell script. In order to do this, open up the `MelissaDataNameObjectWindowsNETExample.ps1` for editing, proceed to the bottom of the script where you will find this section of code.
+
+Default set for .NET Core 3.1
+```
+#dotnet publish -f="net5.0" -c Release -o $ProjectPath\Build MelissaDataNameObjectWindowsNETExample\MelissaDataNameObjectWindowsNETExample.csproj
+dotnet publish -f="netcoreapp3.1" -c Release -o $ProjectPath\Build MelissaDataNameObjectWindowsNETExample\MelissaDataNameObjectWindowsNETExample.csproj
+```
+The target framework is specified with the -f flag found in the command line. If you wish to use the .NET 5.0 framework, please uncomment the line containing that framework and comment out the line containing the .NET Core 3.1 framework (# to comment).
 
 ## Run Powershell Script
 
 Parameters:
-- -name (optional): a test name
+- -name: a test name
  	
   This is convenient when you want to get results for a specific name in one run instead of testing multiple names in interactive mode.  
-- -license (optional): your license string
+- -license (optional): a license string to test the name object
 - -quiet (optional): add to the command if you do not want to get any console output from the Melissa Updater
 
-When you have modified the script to match your data location, let's run the script. 
-
-There are two modes:
+When you have modified the script to match your data location, let's run the script.There are two modes:
 
 - Interactive 
 
@@ -163,8 +161,6 @@ Troubleshooting for errors found while running your example program.
 | ErrorDatabaseExpired   | .db file(s) are expired. Please make sure you are downloading and using the latest release version. (If using the Melissa Updater, check powershell script for '$RELEASE_VERSION = {version}' and change the release version if you are using an out of date release).     |
 | ErrorFoundOldFile   | File(s) are out of date. Please make sure you are downloading and using the latest release version. (If using the Melissa Updater, check powershell script for '$RELEASE_VERSION = {version}' and change the release version if you are using an out of date release).    |
 | ErrorLicenseExpired   | Expired license string. Please contact technical support below. |
-
-----------------------------------------
 
 ## Contact Us
 
