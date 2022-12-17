@@ -4,7 +4,7 @@ using System.IO;
 using System.Reflection;
 using MelissaData;
 
-namespace MelissaDataNameObjectWindowsNETExample
+namespace MelissaDataNameObjectWindowsNETSample
 {
   class Program
   {
@@ -45,14 +45,12 @@ namespace MelissaDataNameObjectWindowsNETExample
             testName = args[i + 1];
           }
         }
-
       }
-
     }
 
     static void RunAsConsole(string license, string testName, string dataPath)
     {
-      Console.WriteLine("\n\n===== WELCOME TO MELISSA DATA NAME OBJECT WINDOWS NET EXAMPLE =====\n");
+      Console.WriteLine("\n\n===== WELCOME TO MELISSA DATA NAME OBJECT WINDOWS NET SAMPLE =====\n");
 
       NameObject nameObject = new NameObject(license, dataPath);
 
@@ -88,7 +86,6 @@ namespace MelissaDataNameObjectWindowsNETExample
 
         // Execute Name Object
         nameObject.ExecuteObjectAndResultCodes(ref dataContainer);
-
 
         // Print output
         Console.WriteLine("\n============================== OUTPUT ==============================\n");
@@ -139,7 +136,6 @@ namespace MelissaDataNameObjectWindowsNETExample
           }
         }
       }
-
       Console.WriteLine("\n============ THANK YOU FOR USING MELISSA DATA NET OBJECT ===========\n");
     }
   }
@@ -160,20 +156,7 @@ namespace MelissaDataNameObjectWindowsNETExample
       dataFilePath = dataPath;
       mdNameObj.SetPathToNameFiles(dataFilePath);
 
-      /**
-       * DatabaseDate is the date of your data files. The data files should be one month behind the DQT release.  
-       * If you are using the 2020-10-15 release, the DatabaseDate should be 2020-09-15.
-       * 
-       * If you see a different date either download the new data files or use the Melissa Updater program to
-       * update your data files. 
-       * 
-       * If 1970-00-00 is the DatabaseDate, the Name Object was unable to reach the data files.
-       * 
-       * ---------------------------READING THIS MAY SAVE YOU HOURS OF YOUR TIME-------------------------------
-       * If the DatabaseDate is not consistent with the data files and your are having issues getting results
-       * using mdName, it is likely a license string issue and yours may have expired.
-       */
-
+      // If you see a different date than expected, check your license string and either download the new data files or use the Melissa Updater program to update your data files.  
       mdName.ProgramStatus pStatus = mdNameObj.InitializeDataFiles();
 
       // If an issue occurred while initializing the data files, this will throw
@@ -187,9 +170,8 @@ namespace MelissaDataNameObjectWindowsNETExample
       Console.WriteLine($"                DataBase Date: {mdNameObj.GetDatabaseDate()}");
       Console.WriteLine($"              Expiration Date: {mdNameObj.GetLicenseExpirationDate()}");
 
-
       /**
-       * This number should match with file properties of the mdName.dll File Version.
+       * This number should match with the file properties of the Melissa Data Object binary file.
        * If TEST appears with the build number, there may be a license key issue.
        */
       Console.WriteLine($"               Object Version: {mdNameObj.GetBuildNumber()}\n");
@@ -208,7 +190,7 @@ namespace MelissaDataNameObjectWindowsNETExample
 
       // ResultsCodes explain any issues name object has with the object.
       // List of result codes for Name object
-      // http://wiki.melissadata.com/index.php?title=Result_Code_Details#Name_Object
+      // https://wiki.melissadata.com/?title=Result_Code_Details#Name_Object
     }
   }
 
