@@ -21,7 +21,6 @@ class DLLConfig {
 $RELEASE_VERSION = '2022.12'
 $ProductName = "DQ_NAME_DATA"
 
-
 # Uses the location of the .ps1 file 
 # Modify this if you want to use 
 $CurrentPath = $PSScriptRoot
@@ -157,9 +156,10 @@ Write-Host "All file(s) have been downloaded/updated! "
 # Build project
 Write-Host "`n=========================== BUILD PROJECT =========================="
 
-# Target frameworks net6.0, net5.0, netcoreapp3.1
+# Target frameworks net7.0, net6.0, net5.0, netcoreapp3.1
 # Please comment out the version that you don't want to use and uncomment the one that you do want to use
-dotnet publish -f="net6.0" -c Release -o $BuildPath MelissaDataNameObjectWindowsNETSample\MelissaDataNameObjectWindowsNETSample.csproj
+dotnet publish -f="net7.0" -c Release -o $BuildPath MelissaDataNameObjectWindowsNETSample\MelissaDataNameObjectWindowsNETSample.csproj
+#dotnet publish -f="net6.0" -c Release -o $BuildPath MelissaDataNameObjectWindowsNETSample\MelissaDataNameObjectWindowsNETSample.csproj
 #dotnet publish -f="net5.0" -c Release -o $BuildPath MelissaDataNameObjectWindowsNETSample\MelissaDataNameObjectWindowsNETSample.csproj
 #dotnet publish -f="netcoreapp3.1" -c Release -o $BuildPath MelissaDataNameObjectWindowsNETSample\MelissaDataNameObjectWindowsNETSample.csproj
 

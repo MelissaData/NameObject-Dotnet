@@ -50,7 +50,7 @@ namespace MelissaDataNameObjectWindowsNETSample
 
     static void RunAsConsole(string license, string testName, string dataPath)
     {
-      Console.WriteLine("\n\n===== WELCOME TO MELISSA DATA NAME OBJECT WINDOWS NET SAMPLE =====\n");
+      Console.WriteLine("\n\n====== WELCOME TO MELISSA DATA NAME OBJECT WINDOWS NET SAMPLE ======\n");
 
       NameObject nameObject = new NameObject(license, dataPath);
 
@@ -91,18 +91,18 @@ namespace MelissaDataNameObjectWindowsNETSample
         Console.WriteLine("\n============================== OUTPUT ==============================\n");
         Console.WriteLine("\n\tName Object Information:");
 
-        Console.WriteLine($"\t      Prefix: {nameObject.mdNameObj.GetPrefix()}");
-        Console.WriteLine($"\t  First Name: {nameObject.mdNameObj.GetFirstName()}");
-        Console.WriteLine($"\t Middle Name: {nameObject.mdNameObj.GetMiddleName()}");
-        Console.WriteLine($"\t   Last Name: {nameObject.mdNameObj.GetLastName()}");
-        Console.WriteLine($"\t      Suffix: {nameObject.mdNameObj.GetSuffix()}");
-        Console.WriteLine($"\t      Gender: {nameObject.mdNameObj.GetGender()}");
-        Console.WriteLine($"\t  Salutation: {nameObject.mdNameObj.GetSalutation()}");
-        Console.WriteLine($"\tResult Codes: {dataContainer.ResultCodes}");
+        Console.WriteLine($"\t           Prefix: {nameObject.mdNameObj.GetPrefix()}");
+        Console.WriteLine($"\t       First Name: {nameObject.mdNameObj.GetFirstName()}");
+        Console.WriteLine($"\t      Middle Name: {nameObject.mdNameObj.GetMiddleName()}");
+        Console.WriteLine($"\t        Last Name: {nameObject.mdNameObj.GetLastName()}");
+        Console.WriteLine($"\t           Suffix: {nameObject.mdNameObj.GetSuffix()}");
+        Console.WriteLine($"\t           Gender: {nameObject.mdNameObj.GetGender()}");
+        Console.WriteLine($"\t       Salutation: {nameObject.mdNameObj.GetSalutation()}");
+        Console.WriteLine($"\t     Result Codes: {dataContainer.ResultCodes}");
 
         String[] rs = dataContainer.ResultCodes.Split(',');
         foreach (String r in rs)
-          Console.WriteLine($"        Note: {nameObject.mdNameObj.GetResultCodeDescription(r, mdName.ResultCdDescOpt.ResultCodeDescriptionLong)}");
+          Console.WriteLine($"        {r}: {nameObject.mdNameObj.GetResultCodeDescription(r, mdName.ResultCdDescOpt.ResultCodeDescriptionLong)}");
 
         bool isValid = false;
 
@@ -139,7 +139,6 @@ namespace MelissaDataNameObjectWindowsNETSample
       Console.WriteLine("\n============ THANK YOU FOR USING MELISSA DATA NET OBJECT ===========\n");
     }
   }
-
 
   class NameObject
   {
