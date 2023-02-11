@@ -3,6 +3,11 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Name Object
+[Mm]elissa[Uu]pdater/
+[Mm]elissa[Nn]ame[Oo]bject[Ww]indows[Dd]otnet/[Dd]ata
+[Mm]elissa[Nn]ame[Oo]bject[Ww]indows[Dd]otnet/[Bb]uild
+
 # User-specific files
 *.rsuser
 *.suo

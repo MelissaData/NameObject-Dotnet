@@ -1,5 +1,5 @@
-# Name:    MelissaDataNameObjectWindowsNET
-# Purpose: Use the Melissa Updater to make the MelissaDataNameObjectWindowsNET sample usable
+# Name:    MelissaNameObjectWindowsDotnet
+# Purpose: Use the Melissa Updater to make the MelissaNameObjectWindowsDotnet code usable
 
 ######################### Parameters ##########################
 
@@ -25,7 +25,7 @@ $ProductName = "DQ_NAME_DATA"
 # Modify this if you want to use 
 $CurrentPath = $PSScriptRoot
 Set-Location $CurrentPath
-$ProjectPath = "$CurrentPath\MelissaDataNameObjectWindowsNETSample"
+$ProjectPath = "$CurrentPath\MelissaNameObjectWindowsDotnet"
 $DataPath = "$ProjectPath\Data"
 $BuildPath = "$ProjectPath\Build"
 
@@ -112,9 +112,7 @@ function CheckDLLs() {
 
 
 ########################## Main ############################
-
-#Write-Host "`Sample of Melissa Data Name Object `n[ .NET | Windows | 64BIT ]`n"
-Write-Host "`n=============== Sample of Melissa Data Name Object ===============`n"
+Write-Host "`n======================= Melissa Name Object ========================`n"
 
 # Get license (either from parameters or user input)
 if ([string]::IsNullOrEmpty($license) ) {
@@ -152,21 +150,21 @@ if (!$DLLsAreDownloaded) {
 
 Write-Host "All file(s) have been downloaded/updated! "
 
-# Start sample
+# Start program
 # Build project
 Write-Host "`n=========================== BUILD PROJECT =========================="
 
 # Target frameworks net7.0, net6.0, net5.0, netcoreapp3.1
 # Please comment out the version that you don't want to use and uncomment the one that you do want to use
-dotnet publish -f="net7.0" -c Release -o $BuildPath MelissaDataNameObjectWindowsNETSample\MelissaDataNameObjectWindowsNETSample.csproj
-#dotnet publish -f="net6.0" -c Release -o $BuildPath MelissaDataNameObjectWindowsNETSample\MelissaDataNameObjectWindowsNETSample.csproj
-#dotnet publish -f="net5.0" -c Release -o $BuildPath MelissaDataNameObjectWindowsNETSample\MelissaDataNameObjectWindowsNETSample.csproj
-#dotnet publish -f="netcoreapp3.1" -c Release -o $BuildPath MelissaDataNameObjectWindowsNETSample\MelissaDataNameObjectWindowsNETSample.csproj
+dotnet publish -f="net7.0" -c Release -o $BuildPath MelissaNameObjectWindowsDotnet\MelissaNameObjectWindowsDotnet.csproj
+#dotnet publish -f="net6.0" -c Release -o $BuildPath MelissaNameObjectWindowsDotnet\MelissaNameObjectWindowsDotnet.csproj
+#dotnet publish -f="net5.0" -c Release -o $BuildPath MelissaNameObjectWindowsDotnet\MelissaNameObjectWindowsDotnet.csproj
+#dotnet publish -f="netcoreapp3.1" -c Release -o $BuildPath MelissaNameObjectWindowsDotnet\MelissaNameObjectWindowsDotnet.csproj
 
 # Run project
 if ([string]::IsNullOrEmpty($name)) {
-  dotnet $BuildPath\MelissaDataNameObjectWindowsNETSample.dll --license $License  --dataPath $DataPath
+  dotnet $BuildPath\MelissaNameObjectWindowsDotnet.dll --license $License  --dataPath $DataPath
 }
 else {
-  dotnet $BuildPath\MelissaDataNameObjectWindowsNETSample.dll --license $License  --dataPath $DataPath --name $name
+  dotnet $BuildPath\MelissaNameObjectWindowsDotnet.dll --license $License  --dataPath $DataPath --name $name
 }

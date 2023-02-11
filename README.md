@@ -1,8 +1,12 @@
-# Melissa Data Name Object Windows Net Sample
+# Melissa - Name Object Windows Dotnet
 
 ## Purpose
 
-This is a sample of the Melissa Data Name Object using C#
+This code showcases the Melissa Name Object using C#.
+
+Please feel free to copy or embed this code to your own project. Happy coding!
+
+For the latest Melissa Name Object release notes, please visit: https://releasenotes.melissa.com/on-premise-api/name-object/
 
 The console will ask the user for:
 
@@ -29,7 +33,7 @@ And return
 
 ### mdName.dll
 
-This is the c++ code of the Melissa Data Object.
+This is the c++ code of the Melissa Object.
 
 ### Data File(s)
 
@@ -96,20 +100,20 @@ Melissa Updater is a CLI application allowing the user to update their Melissa a
 	- It will handle all of the data download/path and dll(s) for you. 
 2.  If you already have the latest DQS Release (ZIP), you can find the data file(s) and dll(s) in there
 	- Use the location of where you copied/installed the data and update the "$DataPath" variable in the powershell script.
-	- Copy all the dll(s) mentioned above into the `MelissaDataNameObjectWindowsNETSample` project folder.
+	- Copy all the dll(s) mentioned above into the `MelissaNameObjectWindowsDotnet` project folder.
 
 ---
 
 #### Configure Target Framework
 
-Depending on your target .NET framework, you may need to configure the powershell script. In order to do this, open up the `MelissaDataNameObjectWindowsNETSample.ps1` for editing, proceed to the bottom of the script where you will find this section of code.
+Depending on your target .NET framework, you may need to configure the powershell script. In order to do this, open up the `MelissaNameObjectWindowsDotnet.ps1` for editing, proceed to the bottom of the script where you will find this section of code.
 
 Default set for .NET 7.0
 ```
-dotnet publish -f="net7.0" -c Release -o $BuildPath MelissaDataNameObjectWindowsNETSample\MelissaDataNameObjectWindowsNETSample.csproj
-#dotnet publish -f="net6.0" -c Release -o $BuildPath MelissaDataNameObjectWindowsNETSample\MelissaDataNameObjectWindowsNETSample.csproj
-#dotnet publish -f="net5.0" -c Release -o $BuildPath MelissaDataNameObjectWindowsNETSample\MelissaDataNameObjectWindowsNETSample.csproj
-#dotnet publish -f="netcoreapp3.1" -c Release -o $BuildPath MelissaDataNameObjectWindowsNETSample\MelissaDataNameObjectWindowsNETSample.csproj
+dotnet publish -f="net7.0" -c Release -o $BuildPath MelissaNameObjectWindowsDotnet\MelissaNameObjectWindowsDotnet.csproj
+#dotnet publish -f="net6.0" -c Release -o $BuildPath MelissaNameObjectWindowsDotnet\MelissaNameObjectWindowsDotnet.csproj
+#dotnet publish -f="net5.0" -c Release -o $BuildPath MelissaNameObjectWindowsDotnet\MelissaNameObjectWindowsDotnet.csproj
+#dotnet publish -f="netcoreapp3.1" -c Release -o $BuildPath MelissaNameObjectWindowsDotnet\MelissaNameObjectWindowsDotnet.csproj
 ```
 The target framework is specified with the -f flag found in the command line. If you wish to use any version besides .NET 7.0, please uncomment the line containing that framework and comment out the line containing the .NET 7.0 framework (# to comment).
 
@@ -119,32 +123,32 @@ Parameters:
 - -name: a test name
  	
   This is convenient when you want to get results for a specific name in one run instead of testing multiple names in interactive mode.  
-- -license (optional): a license string to test the name object
+- -license (optional): a license string to test the Name Object
 - -quiet (optional): add to the command if you do not want to get any console output from the Melissa Updater
 
 When you have modified the script to match your data location, let's run the script. There are two modes:
 
 - Interactive 
 
-	The script will prompt the user for a name, then use the provided name to test Name object. For example:
+	The script will prompt the user for a name, then use the provided name to test Name Object. For example:
 	```
-	$ .\MelissaDataNameObjectWindowsNETSample.ps1
+	$ .\MelissaNameObjectWindowsDotnet.ps1
 	```
     For quiet mode:
     ```
-    $ .\MelissaDataNameObjectWindowsNETSample.ps1 -quiet
+    $ .\MelissaNameObjectWindowsDotnet.ps1 -quiet
     ```
 - Command Line 
 
-	You can pass a name in ```-name``` parameter and a license string in ```-license``` parameter to test Name object. For example:
+	You can pass a name in ```-name``` parameter and a license string in ```-license``` parameter to test Name Object. For example:
 	```
-    $ .\MelissaDataNameObjectWindowsNETSample.ps1 -name "Ray Melissa"
-    $ .\MelissaDataNameObjectWindowsNETSample.ps1 -name "Ray Melissa" -license "<your_license_string>"
+    $ .\MelissaNameObjectWindowsDotnet.ps1 -name "Ray Melissa"
+    $ .\MelissaNameObjectWindowsDotnet.ps1 -name "Ray Melissa" -license "<your_license_string>"
     ```
 	For quiet mode:
     ```
-    $ .\MelissaDataNameObjectWindowsNETSample.ps1 -name "Ray Melissa" -quiet
-    $ .\MelissaDataNameObjectWindowsNETSample.ps1 -name "Ray Melissa" -license "<your_license_string>" -quiet
+    $ .\MelissaNameObjectWindowsDotnet.ps1 -name "Ray Melissa" -quiet
+    $ .\MelissaNameObjectWindowsDotnet.ps1 -name "Ray Melissa" -license "<your_license_string>" -quiet
     ```
 	
 This is the expected output from a successful setup for interactive mode:
@@ -153,7 +157,7 @@ This is the expected output from a successful setup for interactive mode:
 
 ## Troubleshooting
 
-Troubleshooting for errors found while running your sample program.
+Troubleshooting for errors found while running your program.
 
 ### C# Errors:
 
@@ -166,8 +170,6 @@ Troubleshooting for errors found while running your sample program.
 
 ## Contact Us
 
-For free technical support, please call us at 800-MELISSA ext. 4
-(800-635-4772 ext. 4) or email us at tech@MelissaData.com.
+For free technical support, please call us at 800-MELISSA ext. 4 (800-635-4772 ext. 4) or email us at tech@melissa.com.
 
-To purchase this product, contact Melissa Data sales department at
-800-MELISSA ext. 3 (800-635-4772 ext. 3).
+To purchase this product, contact the Melissa Data sales department at 800-MELISSA ext. 3 (800-635-4772 ext. 3).

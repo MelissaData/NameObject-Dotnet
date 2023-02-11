@@ -4,7 +4,7 @@ using System.IO;
 using System.Reflection;
 using MelissaData;
 
-namespace MelissaDataNameObjectWindowsNETSample
+namespace MelissaNameObjectWindowsDotnet
 {
   class Program
   {
@@ -50,7 +50,7 @@ namespace MelissaDataNameObjectWindowsNETSample
 
     static void RunAsConsole(string license, string testName, string dataPath)
     {
-      Console.WriteLine("\n\n====== WELCOME TO MELISSA DATA NAME OBJECT WINDOWS NET SAMPLE ======\n");
+      Console.WriteLine("\n\n=========== WELCOME TO MELISSA NAME OBJECT WINDOWS DOTNET ==========\n");
 
       NameObject nameObject = new NameObject(license, dataPath);
 
@@ -136,16 +136,16 @@ namespace MelissaDataNameObjectWindowsNETSample
           }
         }
       }
-      Console.WriteLine("\n============ THANK YOU FOR USING MELISSA DATA NET OBJECT ===========\n");
+      Console.WriteLine("\n============ THANK YOU FOR USING MELISSA DOTNET OBJECT ===========\n");
     }
   }
 
   class NameObject
   {
-    // Path to name object data files (.dat, etc)
+    // Path to Name Object data files (.dat, etc)
     string dataFilePath;
 
-    // Create instance of Melissa Data Name Object
+    // Create instance of Melissa Name Object
     public mdName mdNameObj = new mdName();
 
     public NameObject(string license, string dataPath)
@@ -170,7 +170,7 @@ namespace MelissaDataNameObjectWindowsNETSample
       Console.WriteLine($"              Expiration Date: {mdNameObj.GetLicenseExpirationDate()}");
 
       /**
-       * This number should match with the file properties of the Melissa Data Object binary file.
+       * This number should match with the file properties of the Melissa Object binary file.
        * If TEST appears with the build number, there may be a license key issue.
        */
       Console.WriteLine($"               Object Version: {mdNameObj.GetBuildNumber()}\n");
@@ -187,8 +187,8 @@ namespace MelissaDataNameObjectWindowsNETSample
       mdNameObj.Salutate();
       data.ResultCodes = mdNameObj.GetResults();
 
-      // ResultsCodes explain any issues name object has with the object.
-      // List of result codes for Name object
+      // ResultsCodes explain any issues Name Object has with the object.
+      // List of result codes for Name Object
       // https://wiki.melissadata.com/?title=Result_Code_Details#Name_Object
     }
   }
