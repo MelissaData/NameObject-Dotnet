@@ -10,6 +10,7 @@
 
 # User-specific files
 *.rsuser
+*.hash
 *.suo
 *.user
 *.userosscache

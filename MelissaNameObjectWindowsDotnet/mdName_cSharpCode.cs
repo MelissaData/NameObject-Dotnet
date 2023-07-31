@@ -130,8 +130,6 @@ namespace MelissaData {
 			public static extern IntPtr mdNameGetErrorCode(IntPtr i);
 			[DllImport("mdName", EntryPoint = "mdNameGetChangeCode", CallingConvention = CallingConvention.Cdecl)]
 			public static extern IntPtr mdNameGetChangeCode(IntPtr i);
-			[DllImport("mdName", EntryPoint = "mdNameGetDebugInfo", CallingConvention = CallingConvention.Cdecl)]
-			public static extern IntPtr mdNameGetDebugInfo(IntPtr i, IntPtr p1);
 			[DllImport("mdName", EntryPoint = "mdNameGetResults", CallingConvention = CallingConvention.Cdecl)]
 			public static extern IntPtr mdNameGetResults(IntPtr i);
 			[DllImport("mdName", EntryPoint = "mdNameGetResultCodeDescription", CallingConvention = CallingConvention.Cdecl)]
@@ -343,11 +341,6 @@ namespace MelissaData {
 
 		public string GetChangeCode() {
 			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetChangeCode(i));
-		}
-
-		public string GetDebugInfo(string p1) {
-			Utf8String u_p1 = new Utf8String(p1);
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetDebugInfo(i, u_p1.GetUtf8Ptr()));
 		}
 
 		public string GetResults() {

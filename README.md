@@ -1,7 +1,6 @@
 # Melissa - Name Object Windows Dotnet
 
 ## Purpose
-
 This code showcases the Melissa Name Object using C#.
 
 Please feel free to copy or embed this code to your own project. Happy coding!
@@ -24,10 +23,8 @@ And return
 - Result Codes
 
 ## Tested Environments
-
-- Windows 64-bit .NET 7.0, .NET 6.0, .NET 5.0, .NET Core 3.1
-- Powershell 5.1
-- Melissa data files for 2023-06
+- Windows 10 64-bit .NET 7.0, Powershell 5.1
+- Melissa data files for 2023-07
 
 ## Required File(s) and Programs
 
@@ -36,14 +33,11 @@ And return
 This is the c++ code of the Melissa Object.
 
 ### Data File(s)
-
 - mdName.cfg
 - mdName.dat
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-
-This project is compatible with .NET 7.0, .NET 6.0, .NET 5.0, and .NET Core 3.1. If you would like to run this project for any other version besides .NET 7.0, proceed with the following procedures but check for and download your desired .NET version.
 
 #### Install the Dotnet Core SDK
 Before starting, make sure that the .NET 7.0 SDK has been correctly installed on your machine (If you have Visual Studio installed, you most likely have it already). If you are unsure, you can check by opening a command prompt window and typing the following:
@@ -69,7 +63,6 @@ Click and download the `x64` SDK installer for your operating system.
 Once clicked, your web browser will begin downloading an installer for the SDK. Run the installer and follow all of the prompts to complete the installation (your computer may ask you to restart before you can continue). Once all of that is done, you should be able to verify that the SDK is installed with the `dotnet --list-sdks` command.
 
 #### Set up Powershell settings
-
 If running Powershell for the first time, you will need to run this command in the Powershell console: `Set-ExecutionPolicy RemoteSigned`.
 The console will then prompt you with the following warning shown in the image below. 
  - Enter `'A'`. 
@@ -81,12 +74,11 @@ The console will then prompt you with the following warning shown in the image b
 
 #### Download this project
 ```
-$ git clone https://github.com/MelissaData/NameObject-Dotnet.git
+$ git clone https://github.com/MelissaData/NameObject-Dotnet
 $ cd NameObject-Dotnet
 ```
 
 #### Set up Melissa Updater 
-
 Melissa Updater is a CLI application allowing the user to update their Melissa applications/data.
 
 - Download Melissa Updater here: <https://releases.melissadata.net/Download/Library/WINDOWS/NET/ANY/latest/MelissaUpdater.exe>
@@ -102,23 +94,7 @@ Melissa Updater is a CLI application allowing the user to update their Melissa a
 	- Use the location of where you copied/installed the data and update the "$DataPath" variable in the powershell script.
 	- Copy all the dll(s) mentioned above into the `MelissaNameObjectWindowsDotnet` project folder.
 
----
-
-#### Configure Target Framework
-
-Depending on your target .NET framework, you may need to configure the powershell script. In order to do this, open up the `MelissaNameObjectWindowsDotnet.ps1` for editing, proceed to the bottom of the script where you will find this section of code.
-
-Default set for .NET 7.0
-```
-dotnet publish -f="net7.0" -c Release -o $BuildPath MelissaNameObjectWindowsDotnet\MelissaNameObjectWindowsDotnet.csproj
-#dotnet publish -f="net6.0" -c Release -o $BuildPath MelissaNameObjectWindowsDotnet\MelissaNameObjectWindowsDotnet.csproj
-#dotnet publish -f="net5.0" -c Release -o $BuildPath MelissaNameObjectWindowsDotnet\MelissaNameObjectWindowsDotnet.csproj
-#dotnet publish -f="netcoreapp3.1" -c Release -o $BuildPath MelissaNameObjectWindowsDotnet\MelissaNameObjectWindowsDotnet.csproj
-```
-The target framework is specified with the -f flag found in the command line. If you wish to use any version besides .NET 7.0, please uncomment the line containing that framework and comment out the line containing the .NET 7.0 framework (# to comment).
-
 ## Run Powershell Script
-
 Parameters:
 - -name: a test name
  	
@@ -156,11 +132,9 @@ This is the expected output from a successful setup for interactive mode:
 ![alt text](/screenshots/output.png)
 
 ## Troubleshooting
-
 Troubleshooting for errors found while running your program.
 
 ### C# Errors:
-
 | Error      | Description |
 | ----------- | ----------- |
 | ErrorRequiredFileNotFound      | Program is missing a required file. Please check your Data folder and refer to the list of required files above. If you are unable to obtain all required files through the Melissa Updater, please contact technical support below. |
@@ -169,7 +143,6 @@ Troubleshooting for errors found while running your program.
 | ErrorLicenseExpired   | Expired license string. Please contact technical support below. |
 
 ## Contact Us
-
 For free technical support, please call us at 800-MELISSA ext. 4 (800-635-4772 ext. 4) or email us at tech@melissa.com.
 
 To purchase this product, contact the Melissa Data sales department at 800-MELISSA ext. 3 (800-635-4772 ext. 3).

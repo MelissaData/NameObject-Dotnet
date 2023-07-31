@@ -82,7 +82,7 @@ namespace MelissaNameObjectWindowsDotnet
 
         // Print user input
         Console.WriteLine("\n============================== INPUTS ==============================\n");
-        Console.WriteLine($"\t               Name: {dataContainer.Name}");
+        Console.WriteLine($"\t                 Name: {dataContainer.Name}");
 
         // Execute Name Object
         nameObject.ExecuteObjectAndResultCodes(ref dataContainer);
