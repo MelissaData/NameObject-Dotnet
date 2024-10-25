@@ -26,7 +26,7 @@ And return
 
 ## Tested Environments
 - Windows 10 64-bit .NET 7.0, Powershell 5.1
-- Melissa data files for 2024-09
+- Melissa data files for 2024-10
 
 ## Required File(s) and Programs
 
@@ -76,8 +76,8 @@ The console will then prompt you with the following warning shown in the image b
 
 #### Download this project
 ```
-$ git clone https://github.com/MelissaData/NameObject-Dotnet
-$ cd NameObject-Dotnet
+git clone https://github.com/MelissaData/NameObject-Dotnet
+cd NameObject-Dotnet
 ```
 
 #### Set up Melissa Updater 
@@ -111,25 +111,25 @@ When you have modified the script to match your data location, let's run the scr
 
 - Interactive 
 
-	The script will prompt the user for a name, then use the provided name to test Name Object. For example:
-	```
-	$ .\MelissaNameObjectWindowsDotnet.ps1
-	```
+    The script will prompt the user for a name, then use the provided name to test Name Object. For example:
+    ```
+    .\MelissaNameObjectWindowsDotnet.ps1
+    ```
     For quiet mode:
     ```
-    $ .\MelissaNameObjectWindowsDotnet.ps1 -quiet
+    .\MelissaNameObjectWindowsDotnet.ps1 -quiet
     ```
 - Command Line 
 
-	You can pass a name in ```-name``` parameter and a license string in ```-license``` parameter to test Name Object. For example:
-	```
-    $ .\MelissaNameObjectWindowsDotnet.ps1 -name "Ray Melissa"
-    $ .\MelissaNameObjectWindowsDotnet.ps1 -name "Ray Melissa" -license "<your_license_string>"
+    You can pass a name in ```-name``` parameter and a license string in ```-license``` parameter to test Name Object. For example:
     ```
-	For quiet mode:
+    .\MelissaNameObjectWindowsDotnet.ps1 -name "Ray Melissa"
+    .\MelissaNameObjectWindowsDotnet.ps1 -name "Ray Melissa" -license "<your_license_string>"
     ```
-    $ .\MelissaNameObjectWindowsDotnet.ps1 -name "Ray Melissa" -quiet
-    $ .\MelissaNameObjectWindowsDotnet.ps1 -name "Ray Melissa" -license "<your_license_string>" -quiet
+    For quiet mode:
+    ```
+    .\MelissaNameObjectWindowsDotnet.ps1 -name "Ray Melissa" -quiet
+    .\MelissaNameObjectWindowsDotnet.ps1 -name "Ray Melissa" -license "<your_license_string>" -quiet
     ```
 	
 This is the expected output from a successful setup for interactive mode:
