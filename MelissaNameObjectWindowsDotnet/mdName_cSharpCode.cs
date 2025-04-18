@@ -184,8 +184,8 @@ namespace MelissaData {
 		}
 
 		public void SetPathToNameFiles(string p1) {
-			Utf8String u_p1 = new Utf8String(p1);
-			mdNameUnmanaged.mdNameSetPathToNameFiles(i, u_p1.GetUtf8Ptr());
+			EncodedString u_p1 = new EncodedString(p1);
+			mdNameUnmanaged.mdNameSetPathToNameFiles(i, u_p1.GetPtr());
 		}
 
 		public ProgramStatus InitializeDataFiles() {
@@ -193,28 +193,28 @@ namespace MelissaData {
 		}
 
 		public string GetInitializeErrorString() {
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetInitializeErrorString(i));
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetInitializeErrorString(i));
 		}
 
 		public int SetLicenseString(string p1) {
-			Utf8String u_p1 = new Utf8String(p1);
-			return mdNameUnmanaged.mdNameSetLicenseString(i, u_p1.GetUtf8Ptr());
+			EncodedString u_p1 = new EncodedString(p1);
+			return mdNameUnmanaged.mdNameSetLicenseString(i, u_p1.GetPtr());
 		}
 
 		public string GetBuildNumber() {
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetBuildNumber(i));
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetBuildNumber(i));
 		}
 
 		public string GetDatabaseDate() {
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetDatabaseDate(i));
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetDatabaseDate(i));
 		}
 
 		public string GetDatabaseExpirationDate() {
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetDatabaseExpirationDate(i));
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetDatabaseExpirationDate(i));
 		}
 
 		public string GetLicenseExpirationDate() {
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetLicenseExpirationDate(i));
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetLicenseExpirationDate(i));
 		}
 
 		public int SetPrimaryNameHint(NameHints p1) {
@@ -246,18 +246,18 @@ namespace MelissaData {
 		}
 
 		public void SetSalutationPrefix(string p1) {
-			Utf8String u_p1 = new Utf8String(p1);
-			mdNameUnmanaged.mdNameSetSalutationPrefix(i, u_p1.GetUtf8Ptr());
+			EncodedString u_p1 = new EncodedString(p1);
+			mdNameUnmanaged.mdNameSetSalutationPrefix(i, u_p1.GetPtr());
 		}
 
 		public void SetSalutationSuffix(string p1) {
-			Utf8String u_p1 = new Utf8String(p1);
-			mdNameUnmanaged.mdNameSetSalutationSuffix(i, u_p1.GetUtf8Ptr());
+			EncodedString u_p1 = new EncodedString(p1);
+			mdNameUnmanaged.mdNameSetSalutationSuffix(i, u_p1.GetPtr());
 		}
 
 		public void SetSalutationSlug(string p1) {
-			Utf8String u_p1 = new Utf8String(p1);
-			mdNameUnmanaged.mdNameSetSalutationSlug(i, u_p1.GetUtf8Ptr());
+			EncodedString u_p1 = new EncodedString(p1);
+			mdNameUnmanaged.mdNameSetSalutationSlug(i, u_p1.GetPtr());
 		}
 
 		public void ClearProperties() {
@@ -265,58 +265,58 @@ namespace MelissaData {
 		}
 
 		public void SetFullName(string p1) {
-			Utf8String u_p1 = new Utf8String(p1);
-			mdNameUnmanaged.mdNameSetFullName(i, u_p1.GetUtf8Ptr());
+			EncodedString u_p1 = new EncodedString(p1);
+			mdNameUnmanaged.mdNameSetFullName(i, u_p1.GetPtr());
 		}
 
 		public void SetPrefix(string p1) {
-			Utf8String u_p1 = new Utf8String(p1);
-			mdNameUnmanaged.mdNameSetPrefix(i, u_p1.GetUtf8Ptr());
+			EncodedString u_p1 = new EncodedString(p1);
+			mdNameUnmanaged.mdNameSetPrefix(i, u_p1.GetPtr());
 		}
 
 		public void SetPrefix2(string p1) {
-			Utf8String u_p1 = new Utf8String(p1);
-			mdNameUnmanaged.mdNameSetPrefix2(i, u_p1.GetUtf8Ptr());
+			EncodedString u_p1 = new EncodedString(p1);
+			mdNameUnmanaged.mdNameSetPrefix2(i, u_p1.GetPtr());
 		}
 
 		public void SetFirstName(string p1) {
-			Utf8String u_p1 = new Utf8String(p1);
-			mdNameUnmanaged.mdNameSetFirstName(i, u_p1.GetUtf8Ptr());
+			EncodedString u_p1 = new EncodedString(p1);
+			mdNameUnmanaged.mdNameSetFirstName(i, u_p1.GetPtr());
 		}
 
 		public void SetFirstName2(string p1) {
-			Utf8String u_p1 = new Utf8String(p1);
-			mdNameUnmanaged.mdNameSetFirstName2(i, u_p1.GetUtf8Ptr());
+			EncodedString u_p1 = new EncodedString(p1);
+			mdNameUnmanaged.mdNameSetFirstName2(i, u_p1.GetPtr());
 		}
 
 		public void SetMiddleName(string p1) {
-			Utf8String u_p1 = new Utf8String(p1);
-			mdNameUnmanaged.mdNameSetMiddleName(i, u_p1.GetUtf8Ptr());
+			EncodedString u_p1 = new EncodedString(p1);
+			mdNameUnmanaged.mdNameSetMiddleName(i, u_p1.GetPtr());
 		}
 
 		public void SetMiddleName2(string p1) {
-			Utf8String u_p1 = new Utf8String(p1);
-			mdNameUnmanaged.mdNameSetMiddleName2(i, u_p1.GetUtf8Ptr());
+			EncodedString u_p1 = new EncodedString(p1);
+			mdNameUnmanaged.mdNameSetMiddleName2(i, u_p1.GetPtr());
 		}
 
 		public void SetSuffix(string p1) {
-			Utf8String u_p1 = new Utf8String(p1);
-			mdNameUnmanaged.mdNameSetSuffix(i, u_p1.GetUtf8Ptr());
+			EncodedString u_p1 = new EncodedString(p1);
+			mdNameUnmanaged.mdNameSetSuffix(i, u_p1.GetPtr());
 		}
 
 		public void SetSuffix2(string p1) {
-			Utf8String u_p1 = new Utf8String(p1);
-			mdNameUnmanaged.mdNameSetSuffix2(i, u_p1.GetUtf8Ptr());
+			EncodedString u_p1 = new EncodedString(p1);
+			mdNameUnmanaged.mdNameSetSuffix2(i, u_p1.GetPtr());
 		}
 
 		public void SetLastName(string p1) {
-			Utf8String u_p1 = new Utf8String(p1);
-			mdNameUnmanaged.mdNameSetLastName(i, u_p1.GetUtf8Ptr());
+			EncodedString u_p1 = new EncodedString(p1);
+			mdNameUnmanaged.mdNameSetLastName(i, u_p1.GetPtr());
 		}
 
 		public void SetLastName2(string p1) {
-			Utf8String u_p1 = new Utf8String(p1);
-			mdNameUnmanaged.mdNameSetLastName2(i, u_p1.GetUtf8Ptr());
+			EncodedString u_p1 = new EncodedString(p1);
+			mdNameUnmanaged.mdNameSetLastName2(i, u_p1.GetPtr());
 		}
 
 		public int Parse() {
@@ -332,123 +332,124 @@ namespace MelissaData {
 		}
 
 		public string GetStatusCode() {
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetStatusCode(i));
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetStatusCode(i));
 		}
 
 		public string GetErrorCode() {
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetErrorCode(i));
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetErrorCode(i));
 		}
 
 		public string GetChangeCode() {
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetChangeCode(i));
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetChangeCode(i));
 		}
 
 		public string GetResults() {
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetResults(i));
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetResults(i));
 		}
 
 		public string GetResultCodeDescription(string p1, ResultCdDescOpt opt) {
-			Utf8String u_p1 = new Utf8String(p1);
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetResultCodeDescription(i, u_p1.GetUtf8Ptr(), (int)opt));
+			EncodedString u_p1 = new EncodedString(p1);
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetResultCodeDescription(i, u_p1.GetPtr(), (int)opt));
 		}
 
 		public string GetPrefix() {
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetPrefix(i));
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetPrefix(i));
 		}
 
 		public string GetPrefix2() {
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetPrefix2(i));
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetPrefix2(i));
 		}
 
 		public string GetFirstName() {
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetFirstName(i));
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetFirstName(i));
 		}
 
 		public string GetFirstName2() {
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetFirstName2(i));
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetFirstName2(i));
 		}
 
 		public string GetMiddleName() {
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetMiddleName(i));
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetMiddleName(i));
 		}
 
 		public string GetMiddleName2() {
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetMiddleName2(i));
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetMiddleName2(i));
 		}
 
 		public string GetLastName() {
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetLastName(i));
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetLastName(i));
 		}
 
 		public string GetLastName2() {
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetLastName2(i));
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetLastName2(i));
 		}
 
 		public string GetSuffix() {
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetSuffix(i));
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetSuffix(i));
 		}
 
 		public string GetSuffix2() {
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetSuffix2(i));
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetSuffix2(i));
 		}
 
 		public string GetGender() {
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetGender(i));
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetGender(i));
 		}
 
 		public string GetGender2() {
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetGender2(i));
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetGender2(i));
 		}
 
 		public string GetSalutation() {
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetSalutation(i));
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetSalutation(i));
 		}
 
 		public string StandardizeCompany(string p1) {
-			Utf8String u_p1 = new Utf8String(p1);
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameStandardizeCompany(i, u_p1.GetUtf8Ptr()));
+			EncodedString u_p1 = new EncodedString(p1);
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameStandardizeCompany(i, u_p1.GetPtr()));
 		}
 
 		public void SetReserved(string p1, string p2) {
-			Utf8String u_p1 = new Utf8String(p1);
-			Utf8String u_p2 = new Utf8String(p2);
-			mdNameUnmanaged.mdNameSetReserved(i, u_p1.GetUtf8Ptr(), u_p2.GetUtf8Ptr());
+			EncodedString u_p1 = new EncodedString(p1);
+			EncodedString u_p2 = new EncodedString(p2);
+			mdNameUnmanaged.mdNameSetReserved(i, u_p1.GetPtr(), u_p2.GetPtr());
 		}
 
 		public string GetReserved(string p1) {
-			Utf8String u_p1 = new Utf8String(p1);
-			return Utf8String.GetUnicodeString(mdNameUnmanaged.mdNameGetReserved(i, u_p1.GetUtf8Ptr()));
+			EncodedString u_p1 = new EncodedString(p1);
+			return EncodedString.GetEncodedString(mdNameUnmanaged.mdNameGetReserved(i, u_p1.GetPtr()));
 		}
 
-		private class Utf8String : IDisposable {
-			private IntPtr utf8String = IntPtr.Zero;
+		private class EncodedString : IDisposable {
+			private IntPtr encodedString = IntPtr.Zero;
+			private static Encoding encoding = Encoding.UTF8;
 
-			public Utf8String(string str) {
+			public EncodedString(string str) {
 				if (str == null)
 					str = "";
-				byte[] buffer = Encoding.UTF8.GetBytes(str);
+				byte[] buffer = encoding.GetBytes(str);
 				Array.Resize(ref buffer, buffer.Length + 1);
 				buffer[buffer.Length - 1] = 0;
-				utf8String = Marshal.AllocHGlobal(buffer.Length);
-				Marshal.Copy(buffer, 0, utf8String, buffer.Length);
+				encodedString = Marshal.AllocHGlobal(buffer.Length);
+				Marshal.Copy(buffer, 0, encodedString, buffer.Length);
 			}
 
-			~Utf8String() {
+			~EncodedString() {
 				Dispose();
 			}
 
 			public virtual void Dispose() {
 				lock (this) {
-					Marshal.FreeHGlobal(utf8String);
+					Marshal.FreeHGlobal(encodedString);
 					GC.SuppressFinalize(this);
 				}
 			}
 
-			public IntPtr GetUtf8Ptr() {
-				return utf8String;
+			public IntPtr GetPtr() {
+				return encodedString;
 			}
 
-			public static string GetUnicodeString(IntPtr ptr) {
+			public static string GetEncodedString(IntPtr ptr) {
 				if (ptr == IntPtr.Zero)
 					return "";
 				int len = 0;
@@ -458,7 +459,7 @@ namespace MelissaData {
 					return "";
 				byte[] buffer = new byte[len];
 				Marshal.Copy(ptr, buffer, 0, len);
-				return Encoding.UTF8.GetString(buffer);
+				return encoding.GetString(buffer);
 			}
 		}
 	}
