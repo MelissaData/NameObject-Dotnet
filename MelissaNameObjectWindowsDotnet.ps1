@@ -1,5 +1,43 @@
-# Name:    MelissaNameObjectWindowsDotnet
-# Purpose: Use the Melissa Updater to make the MelissaNameObjectWindowsDotnet code usable
+<#
+.SYNOPSIS
+    Downloads the required components and then builds and runs MelissaNameObjectWindowsDotnet
+
+.DESCRIPTION
+    This script uses the Melissa Updater to fetch the data file(s), DLL(s), and the C# wrapper,
+    verifies the DLL(s) downloaded, then builds the .NET project and runs it against the supplied name.
+
+    Overall flow:
+      1. Read parameters / prompt for the license and data path.
+      2. Download data file(s), DLL(s), and wrapper via the Melissa Updater.
+      3. Confirm the DLL(s) are present.
+      4. Build the project, then run it (single test name or interactive).
+
+.PARAMETER name
+    Full name to parse.
+
+.PARAMETER dataPath
+    Path to an existing data files directory. If omitted, the script prompts for
+    a path; pressing Enter at that prompt skips it and downloads the data files
+    into the project's Data folder via the Melissa Updater. A path that does not
+    exist aborts the script.
+
+.PARAMETER license
+    License string. Resolved in this order:
+      1. This parameter.
+      2. An interactive prompt, if the parameter was not supplied.
+      3. The MD_LICENSE environment variable, if the prompt was left blank.
+    Note that the environment variable is the last resort, not the first: running
+    without -license always prompts, even when MD_LICENSE is set.
+
+.PARAMETER quiet
+    Suppresses the Melissa Updater console output during downloads.
+
+.EXAMPLE
+    .\MelissaNameObjectWindowsDotnet.ps1 -license "your-license"
+
+.EXAMPLE
+    .\MelissaNameObjectWindowsDotnet.ps1 -name "Ray Melissa" -license "your-license"
+#>
 
 ######################### Parameters ##########################
 
@@ -7,6 +45,7 @@ param($name, $dataPath = '', $license = '', [switch]$quiet = $false)
 
 ######################### Classes ##########################
 
+# Describes a single file to request from the Melissa Updater
 class FileConfig {
   [string] $FileName;
   [string] $ReleaseVersion;
@@ -18,6 +57,7 @@ class FileConfig {
 
 ######################### Config ###########################
 
+# Product release the updater pulls files for
 $RELEASE_VERSION = '2026.08'
 $ProductName = "DQ_NAME_DATA"
 
@@ -45,6 +85,7 @@ elseif (!(Test-Path $DataPath) -and ($DataPath -ne "$ProjectPath\Data")) {
   exit
 }
 
+# Binary/DLL(s) needed to run the example
 $DLLs = @(
   [FileConfig]@{
     FileName       = "mdName.dll";
@@ -56,6 +97,7 @@ $DLLs = @(
   }
 )
 
+# C# wrapper source that exposes the DLL to the .NET project
 $Wrapper          = [FileConfig]@{
   FileName        = "mdName_cSharpCode.cs";
   ReleaseVersion  = $RELEASE_VERSION;
@@ -67,6 +109,7 @@ $Wrapper          = [FileConfig]@{
 
 ######################## Functions #########################
 
+# Download the product data file(s) into $DataPath via the Melissa Updater.
 function DownloadDataFiles([string] $license) {
   $DataProg = 0
   Write-Host "========================== MELISSA UPDATER ========================="
@@ -82,6 +125,7 @@ function DownloadDataFiles([string] $license) {
   Write-Host "Melissa Updater finished downloading data file(s)!"
 }
 
+# Download each DLL in $DLLs into the Build folder (with a progress bar).
 function DownloadDLLs() {
   Write-Host "MELISSA UPDATER IS DOWNLOADING DLL(S)..."
   $DLLProg = 0
@@ -111,6 +155,7 @@ function DownloadDLLs() {
   }
 }
 
+# Download the C# wrapper source into the project folder.
 function DownloadWrapper() {
   Write-Host "MELISSA UPDATER IS DOWNLOADING WRAPPER(S)..."
 
@@ -133,6 +178,7 @@ function DownloadWrapper() {
   Write-Host "Melissa Updater finished downloading " $Wrapper.FileName "!"
 }
 
+# Verify the expected DLL(s) landed in the Build folder
 function CheckDLLs() {
   Write-Host "`nDouble checking dll(s) were downloaded...`n" 
   $FileMissing = $false 
@@ -209,9 +255,10 @@ Write-Host "All file(s) have been downloaded/updated! "
 # Build project
 Write-Host "`n=========================== BUILD PROJECT =========================="
 
-dotnet publish -f="net8.0" -c Release -o $BuildPath MelissaNameObjectWindowsDotnet\MelissaNameObjectWindowsDotnet.csproj
+dotnet publish -f="net10.0" -c Release -o $BuildPath MelissaNameObjectWindowsDotnet\MelissaNameObjectWindowsDotnet.csproj
 
 # Run project
+# No name supplied -> run interactively; otherwise pass the name in.
 if ([string]::IsNullOrEmpty($name)) {
   dotnet $BuildPath\MelissaNameObjectWindowsDotnet.dll --license $License  --dataPath $DataPath
 }
